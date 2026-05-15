@@ -1,5 +1,7 @@
 using LibrarySystem.Business.BookBusiness;
+using LibrarySystem.Business.CategoryBuisness;
 using LibrarySystem.Repository.BookRepository;
+using LibrarySystem.Repository.CategoryRepository;
 using LibrarySystem.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +13,8 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddScoped<IBookBusiness, BookBusiness>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<ICategoryBusiness, CategoryBuisness>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var connectionString=  builder.Configuration.GetConnectionString("DefaultConnection");
 
