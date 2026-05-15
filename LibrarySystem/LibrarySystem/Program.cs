@@ -1,6 +1,8 @@
 using LibrarySystem.Business.BookBusiness;
+using LibrarySystem.Business.PublicationBusiness;
 using LibrarySystem.Repository.BookRepository;
 using LibrarySystem.Repository.Data;
+using LibrarySystem.Repository.PublicationRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddScoped<IBookBusiness, BookBusiness>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+
+builder.Services.AddScoped<IPublicationBusiness, PublicationBusiness>();
+builder.Services.AddScoped<IPublicationRepository, PublicationRepository>();
 
 var connectionString=  builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -37,7 +42,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Publication}/{action=AddPublication}/{id?}")
     .WithStaticAssets();
 
 
