@@ -11,7 +11,7 @@ namespace LibrarySystem.Controllers
         private readonly IAuthorBusiness _authorBusiness;
         public AuthorController(IAuthorBusiness authorBusiness)
         {
-            _authorBusiness = authorBusiness;
+            _authorBusiness = authorBusiness; 
         }
 
         public async Task<IActionResult> Index()
